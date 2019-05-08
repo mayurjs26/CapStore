@@ -43,7 +43,7 @@ export class OptionpageComponent implements OnInit {
 
 
       this.chart.push(new Chart("canvas", {
-        type: "bar",
+        type: "line",
         data: {
           labels: this.productName,
           datasets: [
