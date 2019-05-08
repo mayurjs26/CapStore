@@ -1,0 +1,79 @@
+<div class="chart-container" style="position: relative; width:80vw">
+  <div *ngIf="chart">
+    <canvas id="canvas">{{ chart }}</canvas>
+  </div>
+</div>
+<div class="info">
+  <h2><p id="product">Bar Graph for Number Of Products Sold</p></h2>
+</div>
+<mat-divider></mat-divider>
+<!-- <app-productdisplay></app-productdisplay> -->
+<div class="tag1">
+  <h2>
+    <p id="divider1">
+      Products Sold By Merchants
+    </p>
+  </h2>
+</div>
+<div class="producttable">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Merchant ID"
+        [(ngModel)]="merchant.id"
+        name="id"
+        #user="ngModel"
+      />
+    </mat-form-field>
+    <button mat-raised-button (click)="getproductbymerchant()">Find</button>
+  </form>
+  <!-- <button mat-raised-button (click)="getproductbymerchant()">Find</button> -->
+  <mat-table [dataSource]="dataSourceProduct" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Product ID </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{ product.id }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Product name </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{ product.name }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="brand">
+      <mat-header-cell *matHeaderCellDef> Product Brand </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{ product.brand }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+<mat-divider></mat-divider>
+<!-- productdisplayend -->
+<!-- <app-merchantperformance></app-merchantperformance> -->
+<div class="tag2">
+  <h2><p id="orders">All Orders</p></h2>
+</div>
+<div class="ordertable">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Order ID </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{ order.id }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date</mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{ order.date }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef> Order Amount </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{ order.amount }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsorder"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsorder"></mat-row>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </mat-table>
+</div>
+
+<!-- end of order table -->

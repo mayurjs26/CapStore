@@ -1,0 +1,38 @@
+mat-grid-tile {
+  background: lightblue;
+}
+.dashboard-card {
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
+ align-self: center;
+}
+.chart-container{
+  position: absolute;
+}
+.producttable{
+padding-top: 30px;
+}
+.ordertable{
+  padding-top: 30px;
+}
+.info{
+  text-align: center;
+}
+.tag1{
+  text-align: center;
+}
+#divider1{
+  color: blue;
+
+}
+#orders{
+  color: blue;
+  font-family: sans-serif;
+}
+#product{
+  color: blue;
+  font-family: sans-serif;
+}
+.tag2{
+  text-align: center;
+}
